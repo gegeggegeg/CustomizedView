@@ -12,7 +12,9 @@ import android.graphics.RectF;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
+import android.view.accessibility.AccessibilityEvent;
 
 
 public class EmotionView extends View implements View.OnClickListener {
@@ -99,21 +101,39 @@ public class EmotionView extends View implements View.OnClickListener {
         this.happinessState = happinessState;
     }
 
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        
+        return super.onTouchEvent(event);
+    }
 
     @Override
     public void onClick(View view) {
         if(getHappinessState() == HAPPY) {
             setHappinessState(SAD);
             Log.d(TAG, "onClick: " + getHappinessState());
+            sendAccessibilityEvent(AccessibilityEvent.TYPE_VIEW_CLICKED);
         }else{
             setHappinessState(HAPPY);
             Log.d(TAG, "onClick: "+getHappinessState());
+            sendAccessibilityEvent(AccessibilityEvent.TYPE_VIEW_CLICKED);
         }
         invalidate();
     }
 
     @Override
-    public void sendAccessibilityEvent(int eventType) {
-        super.sendAccessibilityEvent(eventType);
+    public void onPopulateAccessibilityEvent(AccessibilityEvent event) {
+        super.onPopulateAccessibilityEvent(event);
+        int eventType = event.getEventType();
+        //this.setContentDescription("");
+        Log.d(TAG, "onPopulateAccessibilityEvent: eventType: "+eventType);
+        if(eventType == AccessibilityEvent.TYPE_VIEW_SELECTED ||
+                eventType == AccessibilityEvent.TYPE_VIEW_ACCESSIBILITY_FOCUSED){
+            this.announceForAccessibility("Emotion view selected.");
+        }
+        if(eventType == AccessibilityEvent.TYPE_VIEW_CLICKED){
+            this.announceForAccessibility("Emotion view clicked.");
+        }
+
     }
 }

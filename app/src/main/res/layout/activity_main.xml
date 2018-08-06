@@ -6,17 +6,29 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
- <com.chen.peter.customizedview.EmotionView
-     android:id="@+id/emotion1"
-     android:layout_width="wrap_content"
-     android:layout_height="wrap_content"
-     app:layout_constraintEnd_toEndOf="parent"
+ <!--<com.chen.peter.customizedview.EmotionView-->
+     <!--android:id="@+id/emotion1"-->
+     <!--android:layout_width="wrap_content"-->
+     <!--android:layout_height="wrap_content"-->
+     <!--android:contentDescription="@string/Description"-->
+     <!--app:layout_constraintEnd_toEndOf="parent"-->
+     <!--app:layout_constraintStart_toStartOf="parent"-->
+     <!--app:layout_constraintBottom_toBottomOf="parent"-->
+     <!--app:layout_constraintTop_toTopOf="parent"-->
+     <!--app:borderColor="@color/white"-->
+     <!--app:eyesColor="@color/white"-->
+     <!--app:faceColor="@color/red"-->
+     <!--app:mouthColor="@color/white"-->
+     <!--app:state="sad" />-->
+
+ <com.chen.peter.customizedview.CustomView2
+     android:id="@+id/CustomtestView2"
+     android:layout_height="match_parent"
+     android:layout_width="match_parent"
      app:layout_constraintStart_toStartOf="parent"
-     app:layout_constraintBottom_toBottomOf="parent"
      app:layout_constraintTop_toTopOf="parent"
-     app:borderColor="@color/white"
-     app:eyesColor="@color/white"
-     app:faceColor="@color/red"
-     app:mouthColor="@color/white"
-     app:state="sad"/>
+     app:layout_constraintEnd_toEndOf="parent"
+     app:layout_constraintBottom_toBottomOf="parent"
+     />
+
 </android.support.constraint.ConstraintLayout>

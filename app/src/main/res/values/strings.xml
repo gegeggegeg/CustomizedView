@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">CustomizedView</string>
+    <string name="Description">This is an emotion view</string>
 </resources>

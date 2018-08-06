@@ -13,7 +13,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        final EmotionView emotionView = findViewById(R.id.emotion1);
+        CustomView2 customizedTextView = findViewById(R.id.CustomtestView2);
     }
 
 }
